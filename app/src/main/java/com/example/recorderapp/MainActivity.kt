@@ -12,26 +12,22 @@ import android.os.Environment
 import android.provider.Settings
 import android.util.Log
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.recorderapp.dataStorage.FileRecord
 import com.example.recorderapp.dataStorage.FileRecorderAdapter
 import com.example.recorderapp.dataStorage.GrabProvider
-import com.example.recorderapp.dataStorage.GrabProvider.Companion.FileListGrab
 import com.example.recorderapp.databinding.ActivityMainBinding
 import com.example.recorderapp.play.PlayAudioPlayer
 import com.example.recorderapp.recorder.Recorder
+import com.example.recorderapp.recorder.StatusViewModel
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
 import java.util.*
@@ -53,21 +49,24 @@ class MainActivity : AppCompatActivity() {
     private var colorSelected= 0
     private var colorBase=0
     private var posicionAnt=-1
+    private lateinit var statusVM : StatusViewModel
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        statusVM = ViewModelProvider(this)[StatusViewModel::class.java]
+
+
+        //statusVM.isStatusDirectory.value = false
         validateDirectory("grabacion")
         colorSelected = ContextCompat.getColor(this@MainActivity, R.color.red)
         colorBase = ContextCompat.getColor(this@MainActivity, R.color.invisible)
         binding.btnPlayRepro.isVisible=false
         binding.btnPlayGrab.isVisible=true
+
         binding.btnPlayGrab.setOnClickListener {
-           /* File(cacheDir, "audio.mp3").also {
-                recorder.start(it)
-                audioFile = it
-                  }*/
+
             //Verificar si existe directorio de trabajo**ok
             //Crea directorio de trabajo si no existe**ok
 
@@ -102,8 +101,7 @@ class MainActivity : AppCompatActivity() {
                 setViewVisible(binding.btnPlayGrab,false)
                 }
         }
-        binding.btnPauseGrab.setOnClickListener {
-        }
+        binding.btnPauseGrab.setOnClickListener { }
         binding.btnStopRepro.setOnClickListener { player.stop()
             setViewVisible(binding.btnStopRepro,false)
             setViewVisible(binding.btnPauseRepro,false)
@@ -114,13 +112,18 @@ class MainActivity : AppCompatActivity() {
         binding.btnPermRead.setOnClickListener {solicitaPermiso(Manifest.permission.READ_EXTERNAL_STORAGE) }
         binding.btnPermWrite.setOnClickListener { solicitaPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE) }
         binding.btnPermRcorder.setOnClickListener { solicitaPermiso(Manifest.permission.RECORD_AUDIO) }
+        statusVM.isStatusDirectory.observe(this) { valor ->
+            Log.d("Viewmodel","isStatusDirectory => ${valor.toString()}")
+            if (valor) {
+                initRecyclerView()
+            }
+        }
         checkPermiso()
-        initRecyclerView()
 
     }
     private fun validateDirectory(carpetaDir: String){
         directorio = "${getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)}/${carpetaDir}/"
-
+        statusVM.isStatusDirectory.value = false
         val storageDir = File(directorio)
         Log.d("ruta","$storageDir")
         if (!storageDir.exists()) {
@@ -128,6 +131,8 @@ class MainActivity : AppCompatActivity() {
             storageDir.mkdir()
             Log.d("ruta2","$storageDir")
         }
+        statusVM.isStatusDirectory.value = true
+        //obtenerLista()
     }
 
     private fun validarArchivo() {
@@ -258,7 +263,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun initRecyclerView() {
 
-        listaRecord = GrabProvider.FileListGrab
+        listaRecord = GrabProvider().getlista(directorio)!!
         posicionAnt=-1
         binding.rvStorage.layoutManager = LinearLayoutManager(this,RecyclerView.VERTICAL,false)
         adapterRecord = FileRecorderAdapter(listaRecord, colorSelected, colorBase, onClickListener = { FileRecord, Posicion -> onItemSelected(FileRecord, Posicion) })
