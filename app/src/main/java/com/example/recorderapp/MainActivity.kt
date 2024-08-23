@@ -12,11 +12,23 @@ import android.os.Environment
 import android.provider.Settings
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.recorderapp.dataStorage.FileRecord
+import com.example.recorderapp.dataStorage.FileRecorderAdapter
+import com.example.recorderapp.dataStorage.GrabProvider
+import com.example.recorderapp.dataStorage.GrabProvider.Companion.FileListGrab
 import com.example.recorderapp.databinding.ActivityMainBinding
 import com.example.recorderapp.play.PlayAudioPlayer
 import com.example.recorderapp.recorder.Recorder
@@ -36,12 +48,19 @@ class MainActivity : AppCompatActivity() {
     private var permisoNom = ""
     //private lateinit var archivo:File
     private lateinit var directorio:String
+    private lateinit var listaRecord:List<FileRecord>
+    private lateinit var adapterRecord: FileRecorderAdapter
+    private var colorSelected= 0
+    private var colorBase=0
+    private var posicionAnt=-1
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         validateDirectory("grabacion")
+        colorSelected = ContextCompat.getColor(this@MainActivity, R.color.red)
+        colorBase = ContextCompat.getColor(this@MainActivity, R.color.invisible)
         binding.btnPlayRepro.isVisible=false
         binding.btnPlayGrab.isVisible=true
         binding.btnPlayGrab.setOnClickListener {
@@ -52,11 +71,11 @@ class MainActivity : AppCompatActivity() {
             //Verificar si existe directorio de trabajo**ok
             //Crea directorio de trabajo si no existe**ok
 
-            // crear un recylce view con las grbacipnes
-            // crear funcionamiento de bloqueo de botones para evitar mal funcionamiento
+            // crear un recylce view con las grbacipnes**ok
+            // crear funcionamiento de bloqueo de botones para evitar mal funcionamiento**ok
             // crear funcion de lectura de archivos
             //crear funcionde reproducciond earchivos
-            // data clas que separe los datos del archivoy envie a l recycle
+            // data clas que separe los datos del archivoy envie a l recycle**ok
             validarArchivo()
             setViewVisible(binding.btnStopGrab,true)
             setViewVisible(binding.btnPauseGrab,true)
@@ -96,12 +115,18 @@ class MainActivity : AppCompatActivity() {
         binding.btnPermWrite.setOnClickListener { solicitaPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE) }
         binding.btnPermRcorder.setOnClickListener { solicitaPermiso(Manifest.permission.RECORD_AUDIO) }
         checkPermiso()
+        initRecyclerView()
+
     }
     private fun validateDirectory(carpetaDir: String){
         directorio = "${getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)}/${carpetaDir}/"
+
         val storageDir = File(directorio)
+        Log.d("ruta","$storageDir")
         if (!storageDir.exists()) {
+            Log.d("ruta0","$storageDir")
             storageDir.mkdir()
+            Log.d("ruta2","$storageDir")
         }
     }
 
@@ -230,5 +255,26 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+    }
+    fun initRecyclerView() {
+
+        listaRecord = GrabProvider.FileListGrab
+        posicionAnt=-1
+        binding.rvStorage.layoutManager = LinearLayoutManager(this,RecyclerView.VERTICAL,false)
+        adapterRecord = FileRecorderAdapter(listaRecord, colorSelected, colorBase, onClickListener = { FileRecord, Posicion -> onItemSelected(FileRecord, Posicion) })
+        binding.rvStorage.adapter = adapterRecord
+    }
+    private fun onItemSelected(item: FileRecord, posicion:Int) {
+        Log.d("APP", "Valores => [$posicion| anterior($posicionAnt)] = $item")
+        if (posicionAnt < 0)
+            posicionAnt = posicion
+        if (posicionAnt != posicion && posicionAnt >= 0) {
+            listaRecord[posicionAnt].selected = false
+            adapterRecord.notifyItemChanged(posicionAnt)
+            posicionAnt = posicion
+        }
+        Log.d("APP","Valores => [$posicion| anterior($posicionAnt)] = $item")
+        listaRecord[posicion].selected= !item.selected
+        adapterRecord.notifyItemChanged(posicion)
     }
 }

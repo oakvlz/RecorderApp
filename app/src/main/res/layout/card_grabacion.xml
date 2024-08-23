@@ -16,11 +16,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <LinearLayout
+            android:id="@+id/coLayRecord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center">
             <TextView
+                android:id="@+id/tvNomRepro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="nombre de grabacion"/>
