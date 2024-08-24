@@ -31,7 +31,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/play_circle"
-                android:layout_marginStart="@dimen/_80sdp"/>
+                android:layout_marginEnd="@dimen/_10sdp"/>
 
         </LinearLayout>
 

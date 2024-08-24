@@ -28,6 +28,7 @@ import com.example.recorderapp.databinding.ActivityMainBinding
 import com.example.recorderapp.play.PlayAudioPlayer
 import com.example.recorderapp.recorder.Recorder
 import com.example.recorderapp.recorder.StatusViewModel
+import com.example.recorderapp.wave.WaveFormView
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
 import java.util.*
@@ -56,59 +57,25 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         statusVM = ViewModelProvider(this)[StatusViewModel::class.java]
-
-
-        //statusVM.isStatusDirectory.value = false
+        statusVM.isStatusGrabar.value = false
+        statusVM.isStatusStopGrabar.value = false
+        statusVM.isStatusPauseGrabar.value = false
+        statusVM.isStatusPlayRepro.value = false
+        statusVM.isStatusPauseRepro.value = false
+        statusVM.isStatusStopRepro.value = false
         validateDirectory("grabacion")
         colorSelected = ContextCompat.getColor(this@MainActivity, R.color.red)
         colorBase = ContextCompat.getColor(this@MainActivity, R.color.invisible)
         binding.btnPlayRepro.isVisible=false
         binding.btnPlayGrab.isVisible=true
-
-        binding.btnPlayGrab.setOnClickListener {
-
-            //Verificar si existe directorio de trabajo**ok
-            //Crea directorio de trabajo si no existe**ok
-
-            // crear un recylce view con las grbacipnes**ok
-            // crear funcionamiento de bloqueo de botones para evitar mal funcionamiento**ok
-            // crear funcion de lectura de archivos
-            //crear funcionde reproducciond earchivos
-            // data clas que separe los datos del archivoy envie a l recycle**ok
-            validarArchivo()
-            setViewVisible(binding.btnStopGrab,true)
-            setViewVisible(binding.btnPauseGrab,true)
-            setViewVisible(binding.btnPlayGrab,false)
-            setViewVisible(binding.btnPlayRepro,false)
-        }
-        binding.btnStopGrab.setOnClickListener {
-            recorder.stop()
-            setViewVisible(binding.btnStopGrab,false)
-            setViewVisible(binding.btnPauseGrab,false)
-            setViewVisible(binding.btnPlayGrab,true)
-            if (audioFile!!.exists()){
-                setViewVisible(binding.btnPlayRepro,true)
-            }
-
-        }
+        binding.btnPlayGrab.setOnClickListener {statusVM.isStatusGrabar.value = true }
+        binding.btnStopGrab.setOnClickListener {statusVM.isStatusStopGrabar.value = true }
         binding.btnPauseGrab.setOnClickListener {
-        }
-        binding.btnPlayRepro.setOnClickListener {
-            audioFile?.let { it -> player.playFile(it)
-                setViewVisible(binding.btnStopRepro,true)
-                setViewVisible(binding.btnPauseRepro,true)
-                setViewVisible(binding.btnPlayRepro,false)
-                setViewVisible(binding.btnPlayGrab,false)
-                }
-        }
-        binding.btnPauseGrab.setOnClickListener { }
-        binding.btnStopRepro.setOnClickListener { player.stop()
-            setViewVisible(binding.btnStopRepro,false)
-            setViewVisible(binding.btnPauseRepro,false)
-            setViewVisible(binding.btnPlayRepro,true)
-            setViewVisible(binding.btnPlayGrab,true)
 
         }
+        binding.btnPlayRepro.setOnClickListener {statusVM.isStatusPlayRepro.value = true }
+        binding.btnPauseRepro.setOnClickListener {}
+        binding.btnStopRepro.setOnClickListener {statusVM.isStatusStopRepro.value =true }
         binding.btnPermRead.setOnClickListener {solicitaPermiso(Manifest.permission.READ_EXTERNAL_STORAGE) }
         binding.btnPermWrite.setOnClickListener { solicitaPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE) }
         binding.btnPermRcorder.setOnClickListener { solicitaPermiso(Manifest.permission.RECORD_AUDIO) }
@@ -118,8 +85,53 @@ class MainActivity : AppCompatActivity() {
                 initRecyclerView()
             }
         }
+        statusVM.isStatusGrabar.observe(this) { valor ->
+            Log.d("Viewmodel","isStatusGrabar => ${valor.toString()}")
+            if (valor) {
+                checkPermiso()
+                validarArchivo()
+                setViewVisible(binding.btnStopGrab,true)
+                setViewVisible(binding.btnPauseGrab,true)
+                setViewVisible(binding.btnPlayGrab,false)
+                setViewVisible(binding.btnPlayRepro,false)
+                WaveFormView.addAmplitude
+            }
+        }
+        statusVM.isStatusStopGrabar.observe(this) { valor ->
+            Log.d("Viewmodel","isStatusStopGrabar => ${valor.toString()}")
+            if (valor) {
+                recorder.stop()
+                setViewVisible(binding.btnStopGrab,false)
+                setViewVisible(binding.btnPauseGrab,false)
+                setViewVisible(binding.btnPlayGrab,true)
+                if (audioFile!!.exists()){
+                    setViewVisible(binding.btnPlayRepro,true)
+                }
+            }
+        }
+        statusVM.isStatusPlayRepro.observe(this) { valor ->
+            Log.d("Viewmodel","isStatusPlayRepro => ${valor.toString()}")
+            if (valor) {
+                audioFile?.let { it -> player.playFile(it)
+                    setViewVisible(binding.btnStopRepro,true)
+                    setViewVisible(binding.btnPauseRepro,true)
+                    setViewVisible(binding.btnPlayRepro,false)
+                    setViewVisible(binding.btnPlayGrab,false)
+                    WaveFormView.addAmplitud(recorder.maxAmplitude.toFloat)
+                }
+            }
+        }
+        statusVM.isStatusStopRepro.observe(this) { valor ->
+            Log.d("Viewmodel","isStatusStopRepro => ${valor.toString()}")
+            if (valor) {
+                player.stop()
+                setViewVisible(binding.btnStopRepro,false)
+                setViewVisible(binding.btnPauseRepro,false)
+                setViewVisible(binding.btnPlayRepro,true)
+                setViewVisible(binding.btnPlayGrab,true)
+            }
+        }
         checkPermiso()
-
     }
     private fun validateDirectory(carpetaDir: String){
         directorio = "${getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)}/${carpetaDir}/"
@@ -136,7 +148,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun validarArchivo() {
-       var archivoNom = "${UUID.randomUUID().toString()}.mp3"
+       //var archivoNom = "${UUID.randomUUID().toString()}.mp3"
+       var archivoNom = "5316d867-7491-4775-98e2-e32c91b7161c.mp3"
        Log.d("File","$directorio$archivoNom")
        audioFile = File("$directorio$archivoNom")
        try {
@@ -147,25 +160,7 @@ class MainActivity : AppCompatActivity() {
        } catch (e:Error){
            Log.d("Error",e.message.toString())
        }
-       /*if (file.exists()) {
-           // Existe archivo
-           if (file.canExecute()) {
-               // Lógica si el archivo es ejecutable, si es necesario
-           }
-       } else {
-           try {
-               // Crear el archivo y empezar la grabación
-               if (file.createNewFile()) {
-                   recorder.start(file)
-                   audioFile = file
-                   binding.tvInicioGrab.isVisible = true
-               } else {
-                   Log.e("validarArchivo", "No se pudo crear el archivo.")
-               }
-           } catch (e: IOException) {
-               Log.e("crear archivo", "Error al crear archivo", e)
-           }
-       }*/
+
    }
     @RequiresApi(Build.VERSION_CODES.M)
     private fun checkPermiso(){
