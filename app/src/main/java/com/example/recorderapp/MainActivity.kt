@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
     private var colorBase=0
     private var posicionAnt=-1
     private lateinit var statusVM : StatusViewModel
+    private lateinit var wave :WaveFormView
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,11 +69,11 @@ class MainActivity : AppCompatActivity() {
         colorBase = ContextCompat.getColor(this@MainActivity, R.color.invisible)
         binding.btnPlayRepro.isVisible=false
         binding.btnPlayGrab.isVisible=true
-        binding.btnPlayGrab.setOnClickListener {statusVM.isStatusGrabar.value = true }
-        binding.btnStopGrab.setOnClickListener {statusVM.isStatusStopGrabar.value = true }
-        binding.btnPauseGrab.setOnClickListener {
-
+        binding.wd.isVisible = true
+        binding.btnPlayGrab.setOnClickListener {statusVM.isStatusGrabar.value = true
         }
+        binding.btnStopGrab.setOnClickListener {statusVM.isStatusStopGrabar.value = true }
+        binding.btnPauseGrab.setOnClickListener {}
         binding.btnPlayRepro.setOnClickListener {statusVM.isStatusPlayRepro.value = true }
         binding.btnPauseRepro.setOnClickListener {}
         binding.btnStopRepro.setOnClickListener {statusVM.isStatusStopRepro.value =true }
@@ -94,8 +95,10 @@ class MainActivity : AppCompatActivity() {
                 setViewVisible(binding.btnPauseGrab,true)
                 setViewVisible(binding.btnPlayGrab,false)
                 setViewVisible(binding.btnPlayRepro,false)
-                WaveFormView.addAmplitude
+
             }
+
+           // binding.wd.addAmplitude(recorder.maxAmplitude.toString().toFloat())
         }
         statusVM.isStatusStopGrabar.observe(this) { valor ->
             Log.d("Viewmodel","isStatusStopGrabar => ${valor.toString()}")
@@ -117,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                     setViewVisible(binding.btnPauseRepro,true)
                     setViewVisible(binding.btnPlayRepro,false)
                     setViewVisible(binding.btnPlayGrab,false)
-                    WaveFormView.addAmplitud(recorder.maxAmplitude.toFloat)
+
                 }
             }
         }

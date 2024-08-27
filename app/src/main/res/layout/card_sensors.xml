@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/coLayaout"
+    style="@style/coordinsensors"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp">
+
+    <TextView
+        android:id="@+id/tvNumSensor"
+        style="@style/tvsensors"
+        android:layout_width="78dp"
+        android:layout_height="38dp"
+        android:background="@drawable/btn_roundedblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="135" />
+
+    <TextView
+        android:id="@+id/tvSensor"
+        style="@style/tvsensors"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:background="@drawable/btn_roundedblue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumSensor"
+        tools:text="online" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

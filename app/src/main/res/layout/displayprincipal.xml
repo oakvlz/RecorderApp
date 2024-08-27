@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/lLprimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_180sdp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="Good morning!" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fABNotify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:clickable="true"
+            app:srcCompat="@drawable/bell_notifications" />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRoundBottons"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lLprimer"
+        tools:listitem="@layout/btn_menu"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:elevation="@dimen/_10sdp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvRoundBottons">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+            <!-- Temperatura -->
+            <TextView
+                android:id="@+id/tVTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+25°C"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- Temperatura del suelo -->
+                    <ImageView
+                        android:id="@+id/ivTemperature"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        app:srcCompat="@drawable/ic_temperature" />
+                    <!-- Temperatura del suelo -->
+                    <TextView
+                        android:id="@+id/tVSoilTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+22°C Soil temp"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- Humedad -->
+                    <ImageView
+                        android:id="@+id/ivhumidity"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        app:srcCompat="@drawable/ic_humidity" />
+                    <!-- Humedad -->
+                    <TextView
+                        android:id="@+id/tVHumidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="59% Humidity"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- Viento -->
+                    <ImageView
+                        android:id="@+id/ivWind"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        app:srcCompat="@drawable/ic_windblow" />
+                    <!-- Humedad -->
+                    <!-- Viento -->
+                    <TextView
+                        android:id="@+id/tVWind"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6 m/s Wind"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- Precipitación -->
+                    <ImageView
+                        android:id="@+id/ivStorm"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        app:srcCompat="@drawable/ic_storm" />
+                    <!-- Precipitación -->
+                    <TextView
+                        android:id="@+id/tVPrecipitation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 mm Precipitation"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Horas de Amanecer y Atardecer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+            <!-- Amanecer -->
+            <TextView
+                android:id="@+id/tVSunrise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5:25 am Sunrise"
+                android:textColor="@android:color/black" />
+            <!-- Atardecer -->
+            <TextView
+                android:id="@+id/tVSunset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:04 pm Sunset"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:elevation="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:text="Sail Moisture" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_180sdp"
+                android:backgroundTint="@color/gris"
+                app:cardElevation="@dimen/_50sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Today" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_30sdp"
+                    android:src="@drawable/ic_calendar" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom">
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        style="@style/cardBarLinear"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout style="@style/cardBarLinearIconos">
+
+            <ImageView
+                android:id="@+id/btnHome"
+                style="@style/cardBarImag"
+                android:src="@drawable/ic_house" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/cardBarLinearIconos">
+
+            <ImageView
+                android:id="@+id/btnCalendar"
+                style="@style/cardBarImag"
+                android:src="@drawable/ic_calendar" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/cardBarLinearIconos">
+
+            <ImageView
+                android:id="@+id/btnUser"
+                style="@style/cardBarImag"
+                android:src="@drawable/ic_place" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/cardBarLinearIconos">
+
+            <ImageView
+                android:id="@+id/btnSettings"
+                style="@style/cardBarImag"
+                android:src="@drawable/ic_settings_b" />
+
+            <TextView
+                style="@style/cardBarText"
+                android:text="Home"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
