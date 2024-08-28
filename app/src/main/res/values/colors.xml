@@ -37,4 +37,20 @@
     <color name="gradiente_button2">#DA0468</color>
     <color name="gradiente_card_song">#2D232222</color>
     <color name="gradiente_card_volumen">#172232</color>
+
+    <color name="fragment_appgrafica_bg">#121415</color>
+    <color name="fragment_appgrafica_card">#202524</color>
+    <color name="fragment_appgrafica_card_select">#177358</color>
+    <color name="fragment_appgrafica_btn">#A37244</color>
+    <color name="fragment_appgrafica_submenu">#202524</color>
+    <color name="fragment_appgrafica_submenu_text">#121415</color>
+    <color name="fragment_appgrafica_submenu_select">#A37244</color>
+    <color name="fragment_appgrafica_menu">#2F3534</color>
+    <color name="fragment_appgrafica_menu_select">#177358</color>
+
+    <color name="fragment_appgrafica_grafica_01">#177358</color>
+    <color name="fragment_appgrafica_grafica_02">#B57233</color>
+    <color name="fragment_appgrafica_grafica_03">#A04348</color>
+    <color name="fragment_appgrafica_grafica_04">#1B5DB7</color>
+
 </resources>

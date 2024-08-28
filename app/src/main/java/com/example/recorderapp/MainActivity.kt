@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnPlayRepro.isVisible=false
         binding.btnPlayGrab.isVisible=false
         //binding.wd.isVisible = true
-        binding.btnPlayGrab.setOnClickListener { statusVM.isStatusGrabar.value = true }
+        binding.btnPlayGrab.setOnClickListener { statusVM.isStatusGrabar.value = true}
         binding.btnStopGrab.setOnClickListener {statusVM.isStatusStopGrabar.value = true }
         binding.btnPauseGrab.setOnClickListener {}
         binding.btnPlayRepro.setOnClickListener {statusVM.isStatusPlayRepro.value = true }
@@ -134,6 +134,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         checkPermiso()
+
     }
     private fun validateDirectory(carpetaDir: String){
         directorio = "${getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)}/${carpetaDir}/"
@@ -148,7 +149,6 @@ class MainActivity : AppCompatActivity() {
         statusVM.isStatusDirectory.value = true
         //obtenerLista()
     }
-
     private fun validarArchivo() {
        //var archivoNom = "${UUID.randomUUID().toString()}.mp3"
        var archivoNom = "5316d867-7491-4775-98e2-e32c91b7161c.mp3"
@@ -170,16 +170,28 @@ class MainActivity : AppCompatActivity() {
         permisoAceptado[1]= checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
         permisoAceptado[2]= checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
         //permisoAceptado[1]= checkSelfPermission(Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED
-
         asignaValorText(binding.tvPermRcorder,binding.btnPermRcorder,0)
         asignaValorText(binding.tvPermWrite,binding.btnPermWrite,1)
         asignaValorText(binding.tvPermRead,binding.btnPermRead,2)
     }
     private fun asignaValorText(vista:TextView, boton:TextView, posicion:Int){
-        vista.text = if(permisoAceptado[posicion])  "APROBADO" else "NEGADO"
+        vista.text = if(permisoAceptado[posicion]) "APROBADO " else "NEGADO"
         boton.isVisible = !permisoAceptado[posicion]
-        binding.btnPlayGrab.isVisible=true
+        if(permisoAceptado[0])
+            binding.btnPlayGrab.isVisible=true
+        //validatePerm()
     }
+    private fun validatePerm() {
+        Log.d("checkPerm","paso")
+        val permisosAceptados = permisoAceptado.all { it }
+        if (permisosAceptados) {
+            Log.d("checkPerm1","$permisosAceptados$permisoAceptado")
+            binding.btnPlayGrab.isVisible = true
+        } else {
+            binding.btnPlayGrab.isVisible = false
+        }
+    }
+
     private fun setViewVisible(vista: View, valor:Boolean){ vista.isVisible = valor }
     @SuppressLint("ResourceType")
     @RequiresApi(Build.VERSION_CODES.M)
