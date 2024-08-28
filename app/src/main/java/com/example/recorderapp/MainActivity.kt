@@ -68,10 +68,9 @@ class MainActivity : AppCompatActivity() {
         colorSelected = ContextCompat.getColor(this@MainActivity, R.color.red)
         colorBase = ContextCompat.getColor(this@MainActivity, R.color.invisible)
         binding.btnPlayRepro.isVisible=false
-        binding.btnPlayGrab.isVisible=true
-        binding.wd.isVisible = true
-        binding.btnPlayGrab.setOnClickListener {statusVM.isStatusGrabar.value = true
-        }
+        binding.btnPlayGrab.isVisible=false
+        //binding.wd.isVisible = true
+        binding.btnPlayGrab.setOnClickListener { statusVM.isStatusGrabar.value = true }
         binding.btnStopGrab.setOnClickListener {statusVM.isStatusStopGrabar.value = true }
         binding.btnPauseGrab.setOnClickListener {}
         binding.btnPlayRepro.setOnClickListener {statusVM.isStatusPlayRepro.value = true }
@@ -179,6 +178,7 @@ class MainActivity : AppCompatActivity() {
     private fun asignaValorText(vista:TextView, boton:TextView, posicion:Int){
         vista.text = if(permisoAceptado[posicion])  "APROBADO" else "NEGADO"
         boton.isVisible = !permisoAceptado[posicion]
+        binding.btnPlayGrab.isVisible=true
     }
     private fun setViewVisible(vista: View, valor:Boolean){ vista.isVisible = valor }
     @SuppressLint("ResourceType")
