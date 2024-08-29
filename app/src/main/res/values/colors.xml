@@ -40,6 +40,7 @@
 
     <color name="fragment_appgrafica_bg">#121415</color>
     <color name="fragment_appgrafica_card">#202524</color>
+    <color name="fragment_appgrafica_subcard">#343938</color>
     <color name="fragment_appgrafica_card_select">#177358</color>
     <color name="fragment_appgrafica_btn">#A37244</color>
     <color name="fragment_appgrafica_submenu">#202524</color>
