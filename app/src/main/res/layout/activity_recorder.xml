@@ -90,12 +90,12 @@
                 tools:visibility="visible"/>
 
         </LinearLayout>
-        <com.example.recorderapp.apprecorder.play.wave.WaveFormView
+        <com.example.recorderapp.apprecorder.wave.WaveFormView
             android:id="@+id/wd"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_100sdp">
 
-        </com.example.recorderapp.apprecorder.play.wave.WaveFormView>
+        </com.example.recorderapp.apprecorder.wave.WaveFormView>
 
         <LinearLayout
             android:id="@+id/llgrabacion"

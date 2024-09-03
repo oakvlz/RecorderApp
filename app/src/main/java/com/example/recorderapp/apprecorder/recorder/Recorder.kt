@@ -1,4 +1,4 @@
-package com.example.recorderapp.apprecorder.play.recorder
+package com.example.recorderapp.apprecorder.recorder
 
 import android.content.Context
 import android.media.MediaRecorder

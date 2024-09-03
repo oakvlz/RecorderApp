@@ -4,20 +4,16 @@
   android:layout_width="@dimen/_120sdp"
   android:layout_height="wrap_content"
   android:background="@drawable/card_dipa_home">
-  <androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:cardCornerRadius="@dimen/_10ssp"
-    app:cardBackgroundColor="@color/fragment_appgrafica_dipahome_background"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:orientation="vertical"
-      android:layout_margin="@dimen/_5sdp">
+      android:padding="@dimen/_5sdp"
+      app:cardBackgroundColor="@color/fragment_appgrafica_dipahome_background"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
       <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,14 +42,20 @@
         app:cardCornerRadius="@dimen/_10sdp"
         app:cardBackgroundColor="@color/white">
         <TextView
+          android:id="@+id/tvBtnProbets"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/_2sdp"
+          android:layout_marginBottom="@dimen/_2sdp"
           android:text="High Probets"
-          android:padding="@dimen/_2sdp"
+          android:paddingStart="@dimen/_5sdp"
+          android:paddingEnd="@dimen/_5sdp"
           android:textSize="@dimen/_5ssp"
-          android:textAlignment="center"/>
+          android:textAlignment="center"
+          />
       </androidx.cardview.widget.CardView>
       <TextView
+        android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_4sdp"
@@ -61,5 +63,4 @@
         android:textSize="@dimen/_6ssp"
         android:text="Due.November 06, 2023 . 10:30 Pm"/>
     </LinearLayout>
-  </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,9 +27,9 @@ import com.example.recorderapp.dataStorage.GrabProvider
 import com.example.recorderapp.databinding.ActivityMainBinding
 import com.example.recorderapp.databinding.ActivityRecorderBinding
 import com.example.recorderapp.apprecorder.play.PlayAudioPlayer
-import com.example.recorderapp.apprecorder.play.recorder.Recorder
-import com.example.recorderapp.apprecorder.play.recorder.StatusViewModel
-import com.example.recorderapp.apprecorder.play.wave.WaveFormView
+import com.example.recorderapp.apprecorder.recorder.Recorder
+import com.example.recorderapp.apprecorder.recorder.StatusViewModel
+import com.example.recorderapp.apprecorder.wave.WaveFormView
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
 import java.util.*
