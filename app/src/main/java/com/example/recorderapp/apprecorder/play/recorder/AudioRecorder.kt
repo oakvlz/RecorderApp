@@ -1,4 +1,4 @@
-package com.example.recorderapp.recorder
+package com.example.recorderapp.apprecorder.play.recorder
 
 import java.io.File
 

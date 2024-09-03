@@ -1,4 +1,4 @@
-package com.example.recorderapp.recorder
+package com.example.recorderapp.apprecorder.play.recorder
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

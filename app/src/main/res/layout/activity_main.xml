@@ -1,204 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="5dp"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Grabacion" />
-            <TextView
-                android:id="@+id/tvPermRcorder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10sp"
-                android:text="grabacion" />
-            <TextView
-                android:id="@+id/btnPermRcorder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10sp"
-                android:background="@color/teal_200"
-                android:textStyle="bold"
-                android:padding="5dp"
-                android:visibility="gone"
-                tools:visibility="visible"
-                android:text="Solicitar" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="lectura" />
-            <TextView
-                android:id="@+id/tvPermRead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10sp"
-                android:text="grabacion" />
-            <TextView
-                android:id="@+id/btnPermRead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10sp"
-                android:background="@color/teal_200"
-                android:textStyle="bold"
-                android:padding="5dp"
-                android:text="Solicitar"
-                android:visibility="gone"
-                tools:visibility="visible"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="escritura" />
-            <TextView
-                android:id="@+id/tvPermWrite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10sp"
-                android:text="grabacion" />
-            <TextView
-                android:id="@+id/btnPermWrite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10sp"
-                android:background="@color/teal_200"
-                android:textStyle="bold"
-                android:padding="5dp"
-                android:text="Solicitar"
-                android:visibility="gone"
-                tools:visibility="visible"/>
-
-        </LinearLayout>
-        <com.example.recorderapp.wave.WaveFormView
-            android:id="@+id/wd"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_100sdp">
-
-        </com.example.recorderapp.wave.WaveFormView>
-
-        <LinearLayout
-            android:id="@+id/llgrabacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/teal_200"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="GRABAR" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-                <ImageButton
-                    android:id="@+id/btnPlayGrab"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:visibility="invisible"
-                    tools:visibility="visible"
-                    android:src="@drawable/play_circle" />
-                <ImageButton
-                    android:id="@+id/btnPauseGrab"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:visibility="invisible"
-                    tools:visibility="visible"
-                    android:src="@drawable/pause_circle" />
-                <ImageButton
-                    android:id="@+id/btnStopGrab"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:visibility="invisible"
-                    tools:visibility="visible"
-                    android:src="@drawable/stop_circle" />
-            </LinearLayout>
-            <TextView
-                android:id="@+id/tvInicioGrab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=" Inicia grabacion"
-                android:visibility="invisible"/>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/llreproduccion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:background="@color/purple_200"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Reproducir" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-                <ImageButton
-                    android:id="@+id/btnPlayRepro"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/play_circle" />
-                <ImageButton
-                    android:id="@+id/btnPauseRepro"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:visibility="invisible"
-                    tools:visibility="visible"
-                    android:src="@drawable/pause_circle" />
-                <ImageButton
-                    android:id="@+id/btnStopRepro"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:visibility="invisible"
-                    tools:visibility="visible"
-                    android:src="@drawable/stop_circle" />
-            </LinearLayout>
-            <TextView
-                android:id="@+id/tvInicioRepo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=" Inicio reproduccion"
-                android:visibility="invisible"/>
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvStorage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/card_grabacion">
-
-
-        </androidx.recyclerview.widget.RecyclerView>
-    </LinearLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".MainActivity">
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+    <Button
+      android:id="@+id/btnAppRecorder"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="AppRecorder"
+      android:layout_gravity="center"/>
+    <Button
+      android:id="@+id/btnGraficas"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Graficas"
+      android:layout_gravity="center"/>
+    <Button
+      android:id="@+id/btnDiPainHouse"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="DiPainHouse"
+      android:layout_gravity="center"/>
+  </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

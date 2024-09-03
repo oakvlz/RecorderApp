@@ -1,4 +1,4 @@
-package com.example.recorderapp.wave
+package com.example.recorderapp.apprecorder.play.wave
 
 import android.content.Context
 import android.graphics.Canvas
