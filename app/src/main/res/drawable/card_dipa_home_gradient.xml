@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
   <solid android:color="@color/fragment_appgrafica_dipahome_card"/>
-  <stroke android:color="@color/white" android:width="2dp"/>
+  <gradient android:startColor="@color/gradiente_card" android:endColor="@color/gradiente_button2"
+    android:angle="45"  />
   <corners android:radius="5dp"/>
 </shape>
