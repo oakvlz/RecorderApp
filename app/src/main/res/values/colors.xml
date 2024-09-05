@@ -60,5 +60,8 @@
 
     <color name="fragment_appgrafica_dipahome_card">#17191E</color>
     <color name="fragment_appgrafica_dipahome_background">#131519</color>
+    <color name="fragment_appgrafica_dipahome_ic_dipa_design">#864589</color>
+    <color name="fragment_appgrafica_dipahome_ic_dipa_fleet">#296E3D</color>
+    <color name="fragment_appgrafica_dipahome_ic_dipa_hiring">#334399</color>
 
 </resources>

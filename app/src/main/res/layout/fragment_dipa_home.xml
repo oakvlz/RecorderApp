@@ -1,14 +1,277 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:background="@color/fragment_appgrafica2_background"
   tools:context=".dipainhouse.DipaHomeFragment">
-
-  <!-- TODO: Update blank fragment layout -->
-  <TextView
+  <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="@string/hello_blank_fragment" />
+    android:layout_height="match_parent">
+    <LinearLayout
+      android:id="@+id/linearLayout2"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@drawable/card_dipa_home_gradient"
+      android:orientation="vertical"
+      android:layout_margin="@dimen/_5sdp"
+      android:padding="@dimen/_5sdp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Morning"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_8ssp" />
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rifqy Aulia Ramdahn"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp" />
+    </LinearLayout>
+    <LinearLayout
+      android:id="@+id/llSearch"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/_10sdp"
+      android:background="@drawable/card_dipa_home"
+      android:elevation="@dimen/_10sdp"
+      android:orientation="horizontal"
+      tools:layout_editor_absoluteX="12dp"
+      tools:layout_editor_absoluteY="64dp">
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:backgroundTint="@color/gris"
+        android:src="@drawable/ic_search" />
+      <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Searching Somtething"
+        android:textColor="@color/gris"
+        android:textColorHint="@color/gris" />
+    </LinearLayout>
+    <LinearLayout
+      android:id="@+id/linearLayout3"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/llSearch"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:layout_editor_absoluteX="16dp"
+      tools:layout_editor_absoluteY="129dp">
+      <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:orientation="horizontal">
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center|start"
+          android:text="Assigned to you"
+          android:textColor="@color/white"
+          android:textSize="@dimen/_10ssp"
+          android:textStyle="bold" />
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="end"
+          android:gravity="center|end"
+          android:text="See all"
+          android:textSize="@dimen/_8ssp"
+          android:textColor="@color/gris"/>
+      </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recyclerView"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/_70sdp"
+      android:layout_marginStart="@dimen/_10sdp"
+      android:layout_marginEnd="@dimen/_10sdp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+      tools:listitem="@layout/card_display2" />
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:layout_marginTop="@dimen/_10sdp"
+      android:layout_marginStart="@dimen/_10sdp"
+      android:layout_marginEnd="@dimen/_10sdp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/recyclerView">
+      <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center|start"
+          android:text="Channel Group"
+          android:textColor="@color/white"
+          android:textSize="@dimen/_10ssp"
+          android:textStyle="bold" />
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="end"
+          android:layout_marginEnd="@dimen/_5sdp"
+          android:text="See all"
+          android:textSize="@dimen/_8ssp"
+          android:textColor="@color/gris"/>
+      </androidx.coordinatorlayout.widget.CoordinatorLayout>
+      <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+        <androidx.cardview.widget.CardView
+          android:layout_width="@dimen/_25sdp"
+          android:layout_height="@dimen/_25sdp"
+          android:gravity="center"
+          app:cardBackgroundColor="@color/fragment_appgrafica_dipahome_ic_dipa_design"
+          app:cardCornerRadius="@dimen/_50sdp">
+          <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+           android:layout_gravity="center"
+            android:src="@drawable/ic_dipa_design"/>
+        </androidx.cardview.widget.CardView>
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:layout_marginTop="@dimen/_5sdp"
+          android:layout_marginStart="@dimen/_30sdp"
+          android:text="Dipa Design Ops"
+          android:textColor="@color/white"
+          android:textSize="@dimen/_10ssp"
+          android:textStyle="bold" />
+        <androidx.cardview.widget.CardView
+          android:layout_width="@dimen/_25sdp"
+          android:layout_height="@dimen/_25sdp"
+          android:layout_gravity="end"
+          android:layout_marginEnd="@dimen/_5sdp"
+          app:cardBackgroundColor="@drawable/card_dipa_home"
+          app:cardCornerRadius="@dimen/_50sdp">
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="5"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+        </androidx.cardview.widget.CardView>
+      </androidx.coordinatorlayout.widget.CoordinatorLayout>
+      <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+        <androidx.cardview.widget.CardView
+          android:layout_width="@dimen/_25sdp"
+          android:layout_height="@dimen/_25sdp"
+          android:gravity="center"
+          app:cardBackgroundColor="@color/fragment_appgrafica_dipahome_ic_dipa_fleet"
+          app:cardCornerRadius="@dimen/_50sdp">
+          <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_dipa_fleet"/>
+        </androidx.cardview.widget.CardView>
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:layout_marginTop="@dimen/_5sdp"
+          android:layout_marginStart="@dimen/_30sdp"
+          android:text="Fleet DEsign Team"
+          android:textColor="@color/white"
+          android:textSize="@dimen/_10ssp"
+          android:textStyle="bold" />
+        <androidx.cardview.widget.CardView
+          android:layout_width="@dimen/_25sdp"
+          android:layout_height="@dimen/_25sdp"
+          android:layout_gravity="end"
+          android:layout_marginEnd="@dimen/_5sdp"
+          app:cardBackgroundColor="@drawable/card_dipa_home"
+          app:cardCornerRadius="@dimen/_50sdp">
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="3"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+        </androidx.cardview.widget.CardView>
+      </androidx.coordinatorlayout.widget.CoordinatorLayout>
+      <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+        <androidx.cardview.widget.CardView
+          android:layout_width="@dimen/_25sdp"
+          android:layout_height="@dimen/_25sdp"
+          android:gravity="center"
+          app:cardBackgroundColor="@color/fragment_appgrafica_dipahome_ic_dipa_hiring"
+          app:cardCornerRadius="@dimen/_50sdp">
+          <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_dipa_hiring"/>
+        </androidx.cardview.widget.CardView>
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:layout_marginTop="@dimen/_5sdp"
+          android:layout_marginStart="@dimen/_30sdp"
+          android:text="Mifa Hiring System"
+          android:textColor="@color/white"
+          android:textSize="@dimen/_10ssp"
+          android:textStyle="bold" />
+        <androidx.cardview.widget.CardView
+          android:layout_width="@dimen/_25sdp"
+          android:layout_height="@dimen/_25sdp"
+          android:layout_gravity="end"
+          android:layout_marginEnd="@dimen/_5sdp"
+          app:cardBackgroundColor="@drawable/card_dipa_home"
+          app:cardCornerRadius="@dimen/_50sdp">
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+        </androidx.cardview.widget.CardView>
+      </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+
+
+
+
+
+
+
+    </LinearLayout>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

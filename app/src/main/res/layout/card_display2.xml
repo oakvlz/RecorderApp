@@ -3,6 +3,8 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:layout_width="@dimen/_120sdp"
   android:layout_height="wrap_content"
+  android:layout_marginTop="@dimen/_5sdp"
+  android:layout_marginStart="@dimen/_5sdp"
   android:background="@drawable/card_dipa_home">
     <LinearLayout
       android:layout_width="match_parent"
@@ -59,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_4sdp"
-        android:textColor="@color/white"
+        android:textColor="@color/gris"
         android:textSize="@dimen/_6ssp"
         android:text="Due.November 06, 2023 . 10:30 Pm"/>
     </LinearLayout>
