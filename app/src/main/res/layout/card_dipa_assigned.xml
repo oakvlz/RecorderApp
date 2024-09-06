@@ -26,7 +26,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:src="@drawable/ic_calendar"
-          app:tint="@color/white" />
+          app:tint="@color/fragment_appgrafica_dipahome_card_text" />
         <TextView
           android:id="@+id/tvDatos"
           android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
           android:text="Dipa Design system"
           android:textSize="@dimen/_10sdp"
           android:textStyle="bold"
-          android:textColor="@color/white"/>
+          android:textColor="@color/fragment_appgrafica_dipahome_card_text"/>
       </LinearLayout>
       <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"

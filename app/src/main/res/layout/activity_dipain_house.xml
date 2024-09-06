@@ -6,6 +6,7 @@
   android:layout_height="match_parent"
   android:background="@color/fragment_appgrafica2_background">
   <FrameLayout
+    android:id="@+id/fragmentContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="@dimen/_60sdp"
@@ -28,7 +29,7 @@
     <LinearLayout style="@style/cardBarLinearIconos">
 
       <ImageView
-        android:id="@+id/btnHome"
+        android:id="@+id/btnHomeDipa"
         style="@style/cardBarImag"
         android:src="@drawable/ic_house" />
     </LinearLayout>

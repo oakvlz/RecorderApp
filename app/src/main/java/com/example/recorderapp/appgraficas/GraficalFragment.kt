@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.recorderapp.databinding.FragmentGraficalBinding
 
-
 class GraficalFragment : Fragment() {
     private var _binding: FragmentGraficalBinding? = null
     private val binding get() = _binding!!
