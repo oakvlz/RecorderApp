@@ -18,6 +18,9 @@ class DipainHouseActivity : AppCompatActivity() {
         binding.btnHomeDipa.setOnClickListener {
             replaceFragment(DipaHomeFragment(),"DipaHomeFragment")
         }
+        binding.btnChat.setOnClickListener {
+            replaceFragment(DipaChatsFragmentFragment(),"DipaChatsFragment")
+        }
     }
 
     @SuppressLint("ResourceType")
@@ -28,6 +31,13 @@ class DipainHouseActivity : AppCompatActivity() {
     private fun setIconMenu(btnSelect:String){
         when(btnSelect){
             "DipaHomeFragment" -> {
+                binding.btnHomeDipa.setImageResource(R.drawable.ic_house_select)
+                binding.btnChat.setImageResource(R.drawable.ic_chat_selected)
+                binding.btnTask.setImageResource(R.drawable.ic_task_selected)
+                binding.btnSearch.setImageResource(R.drawable.ic_task_selected)
+                binding.btnProfile.setBackgroundResource(R.drawable.ic_search_selected)
+            }
+            "DipaChatsFragment" -> {
                 binding.btnHomeDipa.setImageResource(R.drawable.ic_house_select)
                 binding.btnChat.setImageResource(R.drawable.ic_chat_selected)
                 binding.btnTask.setImageResource(R.drawable.ic_task_selected)
