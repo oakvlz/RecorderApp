@@ -67,4 +67,7 @@
     <color name="fragment_appgrafica_dipahome_ic_dipa_hiring">#334399</color>
     <color name="fragment_appgrafica_dipahome_ic_dipa_card">#3172B9</color>
 
+    <color name="fragment_appgrafica_dipachat_ic_dipa_card">#212327</color>
+    <color name="fragment_appgrafica_dipachat_ic_dipa_card_background">#191A1E</color>
+
 </resources>

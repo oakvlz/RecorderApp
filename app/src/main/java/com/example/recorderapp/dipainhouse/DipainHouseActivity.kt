@@ -23,7 +23,7 @@ class DipainHouseActivity : AppCompatActivity() {
     @SuppressLint("ResourceType")
     private  fun replaceFragment(fragment : Fragment, name:String){
         setIconMenu(name)
-        supportFragmentManager.beginTransaction() .replace(R.id.fragmentContainer,fragment).commit()
+        supportFragmentManager.beginTransaction() .replace(R.id.fragmentContainerHomeDipa,fragment).commit()
     }
     private fun setIconMenu(btnSelect:String){
         when(btnSelect){
