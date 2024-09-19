@@ -36,47 +36,44 @@
     </LinearLayout>
     <LinearLayout
       android:id="@+id/llSearch"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_margin="@dimen/_10sdp"
+      android:layout_marginTop="@dimen/_10sdp"
+      android:layout_marginStart="@dimen/_5sdp"
+      android:layout_marginEnd="@dimen/_5sdp"
       android:background="@drawable/card_dipa_home"
       android:elevation="@dimen/_10sdp"
       android:orientation="horizontal"
-      tools:layout_editor_absoluteX="12dp"
-      tools:layout_editor_absoluteY="64dp">
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
       <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:layout_marginBottom="@dimen/_3sdp"
-        android:backgroundTint="@color/gris"
         android:src="@drawable/ic_search" />
       <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Searching Somtething"
         android:textColor="@color/gris"
-        android:textColorHint="@color/gris"
-
-        />
+        android:textColorHint="@color/gris"/>
     </LinearLayout>
     <LinearLayout
       android:id="@+id/linearLayout3"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/llSearch"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      tools:layout_editor_absoluteX="16dp"
-      tools:layout_editor_absoluteY="129dp">
+      android:layout_marginTop="@dimen/_10sdp"
+      android:layout_marginStart="@dimen/_5sdp"
+      android:layout_marginEnd="@dimen/_5sdp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/llSearch">
       <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:orientation="horizontal">
         <TextView
           android:layout_width="wrap_content"
@@ -99,9 +96,9 @@
     <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/recyclerView"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/_70sdp"
-      android:layout_marginStart="@dimen/_10sdp"
-      android:layout_marginEnd="@dimen/_10sdp"
+      android:layout_height="@dimen/_65sdp"
+      android:layout_marginStart="@dimen/_5sdp"
+      android:layout_marginEnd="@dimen/_5sdp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
@@ -110,9 +107,9 @@
       android:id="@+id/linearLayout6"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginStart="@dimen/_10sdp"
+      android:layout_marginStart="@dimen/_5sdp"
+      android:layout_marginEnd="@dimen/_5sdp"
       android:layout_marginTop="@dimen/_10sdp"
-      android:layout_marginEnd="@dimen/_10sdp"
       android:orientation="vertical"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
@@ -121,7 +118,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -130,7 +126,6 @@
           android:textColor="@color/fragment_appgrafica_dipahome_card_text"
           android:textSize="@dimen/_10ssp"
           android:textStyle="bold" />
-
         <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -146,19 +141,13 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_10sdp"
         android:orientation="horizontal">
-        <androidx.cardview.widget.CardView
+        <ImageView
           android:layout_width="@dimen/_25sdp"
           android:layout_height="@dimen/_25sdp"
-          android:gravity="center"
-          app:cardBackgroundColor="@color/fragment_appgrafica_dipahome_ic_dipa_design"
-          app:cardCornerRadius="@dimen/_50sdp">
-          <ImageView
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_dipa_design" />
-        </androidx.cardview.widget.CardView>
-
+          android:padding="@dimen/_3sdp"
+          android:layout_gravity="start|center"
+          android:src="@drawable/ic_dipa_design"
+          android:background="@drawable/card_dipa_home_circle01"/>
         <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -169,22 +158,16 @@
           android:textColor="@color/fragment_appgrafica_dipahome_card_text"
           android:textSize="@dimen/_10ssp"
           android:textStyle="bold" />
-
-        <androidx.cardview.widget.CardView
+        <TextView
           android:layout_width="@dimen/_25sdp"
           android:layout_height="@dimen/_25sdp"
-          android:layout_gravity="end"
-          android:layout_marginEnd="@dimen/_5sdp"
-          app:cardBackgroundColor="@drawable/card_dipa_home"
-          app:cardCornerRadius="@dimen/_50sdp">
-
-          <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="5"
-            android:textColor="@color/fragment_appgrafica_dipahome_card_text" />
-        </androidx.cardview.widget.CardView>
+          android:layout_gravity="end|center"
+          android:padding="@dimen/_4sdp"
+          android:elevation="@dimen/_10sdp"
+          android:text=" 5 "
+          android:gravity="center"
+          android:textColor="@color/fragment_appgrafica_dipahome_card_text"
+          android:background="@drawable/card_dipa_home_circle04"/>
       </androidx.coordinatorlayout.widget.CoordinatorLayout>
       <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -192,18 +175,13 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_10sdp"
         android:orientation="horizontal">
-        <androidx.cardview.widget.CardView
+        <ImageView
           android:layout_width="@dimen/_25sdp"
           android:layout_height="@dimen/_25sdp"
-          android:gravity="center"
-          app:cardBackgroundColor="@color/fragment_appgrafica_dipahome_ic_dipa_fleet"
-          app:cardCornerRadius="@dimen/_50sdp">
-          <ImageView
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_dipa_fleet" />
-        </androidx.cardview.widget.CardView>
+          android:padding="@dimen/_3sdp"
+          android:layout_gravity="start|center"
+          android:src="@drawable/ic_dipa_fleet"
+          android:background="@drawable/card_dipa_home_circle02"/>
         <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -214,20 +192,16 @@
           android:textColor="@color/fragment_appgrafica_dipahome_card_text"
           android:textSize="@dimen/_10ssp"
           android:textStyle="bold" />
-        <androidx.cardview.widget.CardView
+        <TextView
           android:layout_width="@dimen/_25sdp"
           android:layout_height="@dimen/_25sdp"
-          android:layout_gravity="end"
-          android:layout_marginEnd="@dimen/_5sdp"
-          app:cardBackgroundColor="@drawable/card_dipa_home"
-          app:cardCornerRadius="@dimen/_50sdp">
-          <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="3"
-            android:textColor="@color/fragment_appgrafica_dipahome_card_text" />
-        </androidx.cardview.widget.CardView>
+          android:layout_gravity="end|center"
+          android:padding="@dimen/_4sdp"
+          android:elevation="@dimen/_10sdp"
+          android:text=" 3 "
+          android:gravity="center"
+          android:textColor="@color/fragment_appgrafica_dipahome_card_text"
+          android:background="@drawable/card_dipa_home_circle04"/> />
       </androidx.coordinatorlayout.widget.CoordinatorLayout>
       <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -235,21 +209,13 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_10sdp"
         android:orientation="horizontal">
-
-        <androidx.cardview.widget.CardView
+        <ImageView
           android:layout_width="@dimen/_25sdp"
           android:layout_height="@dimen/_25sdp"
-          android:gravity="center"
-          app:cardBackgroundColor="@color/fragment_appgrafica_dipahome_ic_dipa_hiring"
-          app:cardCornerRadius="@dimen/_50sdp">
-
-          <ImageView
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_dipa_hiring" />
-        </androidx.cardview.widget.CardView>
-
+          android:layout_gravity="start|center"
+          android:padding="@dimen/_3sdp"
+          android:src="@drawable/ic_dipa_hiring"
+          android:background="@drawable/card_dipa_home_circle03"/>
         <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -260,34 +226,29 @@
           android:textColor="@color/fragment_appgrafica_dipahome_card_text"
           android:textSize="@dimen/_10ssp"
           android:textStyle="bold" />
-
-        <androidx.cardview.widget.CardView
+        <TextView
           android:layout_width="@dimen/_25sdp"
           android:layout_height="@dimen/_25sdp"
-          android:layout_gravity="end"
-          android:layout_marginEnd="@dimen/_5sdp"
-          app:cardBackgroundColor="@drawable/card_dipa_home"
-          app:cardCornerRadius="@dimen/_50sdp">
-
-          <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="1"
-            android:textColor="@color/fragment_appgrafica_dipahome_card_text" />
-        </androidx.cardview.widget.CardView>
+          android:layout_gravity="end|center"
+          android:padding="@dimen/_4sdp"
+          android:elevation="@dimen/_10sdp"
+          android:text=" 1 "
+          android:gravity="center"
+          android:textColor="@color/fragment_appgrafica_dipahome_card_text"
+          android:background="@drawable/card_dipa_home_circle04" />
       </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </LinearLayout>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
       android:id="@+id/coordinatorLayout"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_margin="@dimen/_10sdp"
+      android:layout_marginTop="@dimen/_5sdp"
+      android:layout_marginStart="@dimen/_5sdp"
+      android:layout_marginEnd="@dimen/_5sdp"
       android:orientation="horizontal"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
-
       <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -296,7 +257,6 @@
         android:textColor="@color/white"
         android:textSize="@dimen/_10ssp"
         android:textStyle="bold" />
-
       <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -309,7 +269,7 @@
     <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/rvCardAct"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/_70sdp"
+      android:layout_height="@dimen/_65sdp"
       android:layout_marginTop="@dimen/_5sdp"
       android:layout_marginStart="@dimen/_10sdp"
       android:layout_marginEnd="@dimen/_10sdp"

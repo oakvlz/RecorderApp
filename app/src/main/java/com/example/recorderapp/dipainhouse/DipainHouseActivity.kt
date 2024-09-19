@@ -19,7 +19,7 @@ class DipainHouseActivity : AppCompatActivity() {
             replaceFragment(DipaHomeFragment(),"DipaHomeFragment")
         }
         binding.btnChat.setOnClickListener {
-            replaceFragment(DipaChatsFragmentFragment(),"DipaChatsFragment")
+            replaceFragment(DipaChatsFragment(),"DipaChatsFragment")
         }
     }
 

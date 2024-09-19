@@ -7,6 +7,7 @@
   android:layout_marginStart="@dimen/_5sdp"
   android:background="@drawable/card_dipa_home">
     <LinearLayout
+      android:id="@+id/linearFondoCard"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:orientation="vertical"
