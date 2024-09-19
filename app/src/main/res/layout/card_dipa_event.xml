@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="@dimen/_120sdp"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="@dimen/_5sdp"
+  android:layout_marginStart="@dimen/_5sdp"
+  android:background="@drawable/card_dipa_home">
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:padding="@dimen/_10sdp"
+      app:cardBackgroundColor="@color/fragment_appgrafica_dipahome_background"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center|start">
+        <androidx.cardview.widget.CardView
+          android:layout_width="@dimen/_15sdp"
+          android:layout_height="@dimen/_15sdp"
+          android:gravity="center"
+          app:cardBackgroundColor="@color/fragment_appgrafica_dipahome_ic_dipa_card"
+          app:cardCornerRadius="@dimen/_5sdp">
+          <ImageView
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_videocam" />
+        </androidx.cardview.widget.CardView>
+        <TextView
+          android:id="@+id/tvDatos"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/_5sdp"
+          android:text="Dipa Design system"
+          android:textSize="@dimen/_8sdp"
+          android:textStyle="bold"
+          android:textColor="@color/fragment_appgrafica_dipahome_card_text"/>
+      </LinearLayout>
+      <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:textColor="@color/gris"
+        android:textSize="@dimen/_6ssp"
+        android:text="Due.November 06, 2023 . 10:30 Pm"/>
+      <TextView
+        android:id="@+id/tvJoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:textColor="@color/azulopaco"
+        android:textSize="@dimen/_6ssp"
+        android:text="Join Meeting"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

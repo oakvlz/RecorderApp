@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+  <size android:height="@dimen/_10sdp" android:width="@dimen/_10sdp"/>
+  <solid android:color="@color/fragment_appgrafica2_background" />
+  <stroke android:width="@dimen/_1sdp" android:color="@color/fragment_appgrafica_dipahome_icono"/>
+</shape>

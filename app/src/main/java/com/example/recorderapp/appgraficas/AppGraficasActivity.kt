@@ -20,7 +20,6 @@ class AppGraficasActivity : AppCompatActivity(){
             replaceFragment(GraficalFragment(),"GraficalFragment")
         }
         replaceFragment(PrincipalFragment(),"PrincipalFragment")
-
     }
 
     @SuppressLint("ResourceType")

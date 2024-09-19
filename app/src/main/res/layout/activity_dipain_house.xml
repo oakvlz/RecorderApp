@@ -5,85 +5,66 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:background="@color/fragment_appgrafica2_background">
-  <LinearLayout
-    android:id="@+id/linearLayout2"
+  <FrameLayout
+    android:id="@+id/fragmentContainerHomeDipa"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/_10sdp"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/_60sdp"
     android:layout_marginTop="@dimen/_20sdp"
+    android:layout_marginStart="@dimen/_10sdp"
     android:layout_marginEnd="@dimen/_10sdp"
-    android:padding="@dimen/_5sdp"
-    android:orientation="vertical"
-    android:background="@drawable/card_dipa_home_gradient"
-
+    app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
-    <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Morning"
-      android:textColor="@color/white"
-      android:textSize="@dimen/_8ssp" />
-    <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Rifqy Aulia Ramdahn"
-      android:textColor="@color/white"
-      android:textSize="@dimen/_10ssp" />
-  </LinearLayout>
+  </FrameLayout>
   <LinearLayout
-    android:id="@+id/llSearch"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:background="@drawable/card_dipa_home"
-    android:layout_margin="@dimen/_10sdp"
-    android:elevation="@dimen/_10sdp"
+    android:id="@+id/linearLayout5"
+    style="@style/cardBarLinear"
+    android:weightSum="4"
+    app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-    <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="@dimen/_10sdp"
-      android:layout_marginTop="@dimen/_3sdp"
-      android:layout_marginBottom="@dimen/_3sdp"
-      android:src="@drawable/_ic_search"
-      android:backgroundTint="@color/gris"/>
-  </LinearLayout>
-  <LinearLayout
-    android:id="@+id/linearLayout3"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/llSearch">
-    <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="horizontal"
-      android:layout_margin="@dimen/_10sdp"
-      android:weightSum="2">
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Assigned to you"
-        android:textSize="@dimen/_10ssp"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
+    app:layout_constraintStart_toStartOf="parent">
 
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_weight="1"
-        android:text="See all"
-        android:textSize="@dimen/_8ssp" />
+    <LinearLayout style="@style/cardBarLinearIconos">
 
+      <ImageView
+        android:id="@+id/btnHomeDipa"
+        style="@style/cardBarImag"
+        android:src="@drawable/ic_house" />
+    </LinearLayout>
 
+    <LinearLayout style="@style/cardBarLinearIconos">
+
+      <ImageView
+        android:id="@+id/btnChat"
+        style="@style/cardBarImag"
+        android:src="@drawable/ic_chat" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/cardBarLinearIconos">
+
+      <ImageView
+        android:id="@+id/btnTask"
+        style="@style/cardBarImag"
+        android:src="@drawable/ic_task" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/cardBarLinearIconos">
+
+      <ImageView
+        android:id="@+id/btnSearch"
+        style="@style/cardBarImag"
+        android:src="@drawable/ic_search"
+        app:tint="@color/fragment_appgrafica_menu" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/cardBarLinearIconos">
+
+      <ImageView
+        android:id="@+id/btnProfile"
+        style="@style/cardBarImag"
+        android:src="@drawable/ic_user" />
     </LinearLayout>
   </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
