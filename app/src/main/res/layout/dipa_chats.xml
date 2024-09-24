@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="@dimen/_140sdp"
+  android:layout_height="wrap_content"
+  android:layout_marginBottom="@dimen/_5sdp"
+  android:layout_marginEnd="@dimen/_5sdp"
+  android:background="@drawable/card_dipa_home">
+  <LinearLayout
+    android:id="@+id/linearFondoCard"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp"
+    app:cardBackgroundColor="@color/fragment_appgrafica_dipahome_background"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_gravity="center|top">
+      <LinearLayout
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:gravity="center"
+        android:background="@drawable/card_dipa_home_circle03">
+        <ImageView
+          android:id="@+id/icIcono"
+          android:layout_width="@dimen/_20sdp"
+          android:layout_height="@dimen/_20sdp"
+          android:padding="@dimen/_2sdp"
+          android:src="@drawable/ic_videocam" />
+      </LinearLayout>
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:orientation="vertical">
+        <TextView
+          android:id="@+id/tvName"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Dipa Design system"
+          android:layout_marginBottom="@dimen/_2sdp"
+          android:textSize="@dimen/_10sdp"
+          android:textStyle="bold"
+          android:textColor="@color/fragment_appgrafica_dipahome_card_text"/>
+        <TextView
+          android:id="@+id/tvMessage"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Dipa Design system"
+          android:textSize="@dimen/_8sdp"
+          android:textStyle="bold"
+          android:textColor="@color/fragment_appgrafica_dipahome_card_text"/>
+      </LinearLayout>
+      <TextView
+        android:id="@+id/tvTimeMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" 5m"
+        android:textSize="@dimen/_8sdp"
+        android:textStyle="bold"
+        android:textColor="@color/fragment_appgrafica_dipahome_card_text"/>
+    </LinearLayout>
+  </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
