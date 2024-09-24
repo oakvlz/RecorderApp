@@ -11,13 +11,13 @@ class ChatsProvider {
             ),
             Chats(
                 "ic_men_1",
-                "Dipa Design system",
+                "Fleet Design",
                 "hi ",
                 "5m"
             ),
             Chats(
                 "ic_men_2",
-                "Dipa Design system",
+                "System",
                 "hi ",
                 "5m"
             ),
@@ -29,13 +29,13 @@ class ChatsProvider {
             ),
             Chats(
                 "ic_men_4",
-                "Dipa Design system",
+                "Fleet Design system",
                 "hi ",
                 "5m"
             ),
             Chats(
                 "ic_woman",
-                "Dipa Design system",
+                " Design ",
                 "hi ",
                 "5m"
             ),

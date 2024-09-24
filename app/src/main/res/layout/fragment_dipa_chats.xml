@@ -377,13 +377,15 @@
         android:layout_gravity="end"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
     <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/rvCardAct"
+      android:id="@+id/rvChats"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/_70sdp"
-      android:layout_marginTop="@dimen/_5sdp"
+      android:layout_height="wrap_content"
       android:layout_marginStart="@dimen/_10sdp"
+      android:layout_marginTop="@dimen/_5sdp"
       android:layout_marginEnd="@dimen/_10sdp"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/coordinatorLayout"
