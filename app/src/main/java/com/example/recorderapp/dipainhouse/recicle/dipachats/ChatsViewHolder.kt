@@ -17,7 +17,7 @@ class ChatsViewHolder (view: View): RecyclerView.ViewHolder(view) {
         binding.tvName.setTextColor(opcionTextColor)
         binding.tvMessage.setTextColor(opcionTextColor)
         binding.tvTimeMessage.setTextColor(opcionTextColor)
-        //Glide.with(binding.icDatos.context).load(item.icono).into(binding.icDatos)
+        //Glide.with(binding.icIcono.context).load(item.icono).into(binding.icIcono)
         itemView.setOnClickListener { OnClickItemListener(item,posicion) }
     }
 

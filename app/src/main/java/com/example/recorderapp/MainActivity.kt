@@ -1,11 +1,15 @@
 package com.example.recorderapp
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
+import android.widget.Toast
 import com.example.recorderapp.appgraficas.AppGraficasActivity
 import com.example.recorderapp.databinding.ActivityMainBinding
 import com.example.recorderapp.dipainhouse.DipainHouseActivity
+import com.google.zxing.integration.android.IntentIntegrator
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding : ActivityMainBinding
@@ -22,7 +26,54 @@ class MainActivity : AppCompatActivity() {
         binding.btnDiPainHouse.setOnClickListener {
             startActivity(Intent(this@MainActivity, DipainHouseActivity::class.java))
         }
+        binding.btnQr.setOnClickListener {
+            startScan()
+        }
+        binding.tvResult.setOnClickListener {
+            openUrl()
+        }
+
+
     }
+
+    private fun startScan() {
+        val integrator = IntentIntegrator(this)
+        integrator.setDesiredBarcodeFormats("QR_CODE")
+        integrator.setPrompt("Escanea el código QR")
+        integrator.setCameraId(0)
+        integrator.setBeepEnabled(false)
+        integrator.setBarcodeImageEnabled(false)
+        integrator.initiateScan()
+    }
+    private fun openUrl() {
+        val url = binding.tvResult.text.toString()
+
+        if (url.isEmpty()) {
+            Toast.makeText(this, "Por favor, escanee primero un QR válido", Toast.LENGTH_SHORT).show()
+        } else {
+            var fullUrl = url
+            if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                fullUrl = "http://$url"
+            }
+            if (Patterns.WEB_URL.matcher(fullUrl).matches()) {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(fullUrl))
+                startActivity(browserIntent)
+            } else {
+                Toast.makeText(this, "URL no válida", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+
+        if (result != null && result.contents != null) {
+            binding.tvResult.text = result.contents
+        }
+    }
+
     object NGpsMarcador {
         fun getRecurso(tipo:String):Int{
             return when(tipo){
