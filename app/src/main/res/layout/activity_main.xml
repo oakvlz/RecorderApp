@@ -31,5 +31,32 @@
       android:layout_height="wrap_content"
       android:text="DiPainHouse"
       android:layout_gravity="center"/>
+    <Button
+      android:id="@+id/btnQr"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Scan QR"
+      android:layout_gravity="center"/>
+    <TextView
+      android:id="@+id/tvResult"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:padding="10dp"
+      android:hint="Resultado del escaneo"
+      android:textSize="24sp"
+      android:textStyle="bold" />
+    <androidx.cardview.widget.CardView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:cardCornerRadius="@dimen/_5sdp">
+      <com.journeyapps.barcodescanner.DecoratedBarcodeView
+        android:id="@+id/qrScannerView"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_250sdp"
+        android:screenOrientation="portrait"
+        tools:replace="screenOrientation"/>
+    </androidx.cardview.widget.CardView>
+
   </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

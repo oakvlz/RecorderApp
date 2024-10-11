@@ -53,4 +53,7 @@ dependencies {
     implementation 'com.karumi:dexter:6.2.3'
     def uploadServiceVersion = "4.9.2"
 
+    implementation 'com.journeyapps:zxing-android-embedded:4.2.0'
+    implementation 'com.google.zxing:core:3.4.1'
+
 }

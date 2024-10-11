@@ -59,6 +59,8 @@
 
     <color name="fragment_appgrafica_dipahome_icono">#5B5C63</color>
     <color name="fragment_appgrafica_dipahome_border">#26281E</color>
+    <color name="fragment_appgrafica_dipahome_border_ddv">#8017191E</color>
+    <color name="fragment_appgrafica_dipahome_border_ddv2">#21242B</color>
     <color name="fragment_appgrafica_dipahome_card">#17191E</color>
     <color name="fragment_appgrafica_dipahome_card_solid">#28282E</color>
     <color name="fragment_appgrafica_dipahome_card_text">#ABACB0</color>
@@ -71,5 +73,7 @@
 
     <color name="fragment_appgrafica_dipachat_ic_dipa_card">#212327</color>
     <color name="fragment_appgrafica_dipachat_ic_dipa_card_background">#191A1E</color>
+
+    <color name="fragment_dipachat_text">#284FEA</color>
 
 </resources>

@@ -60,6 +60,50 @@
         android:textColor="@color/gris"
         android:textColorHint="@color/gris"/>
     </LinearLayout>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+      android:id="@+id/coordDDV"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@drawable/card_dipa_home"
+      android:layout_margin="@dimen/_10sdp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/llSearch">
+      <LinearLayout
+        android:layout_width="@dimen/_2sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:elevation="@dimen/_10sdp"
+        android:background="@drawable/card_dipa_home_ddv"
+        android:layout_gravity="start|bottom">
+      </LinearLayout>
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2sdp"
+        android:elevation="@dimen/_10sdp"
+        android:background="@drawable/card_dipa_home_ddv2"
+        android:layout_gravity="bottom">
+      </LinearLayout>
+      <LinearLayout
+        android:id="@+id/llSearchDDV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:elevation="@dimen/_2sdp"
+        android:orientation="horizontal">
+        <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginStart="@dimen/_10sdp"
+          android:src="@drawable/ic_search" />
+        <EditText
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:hint="Searching Somtething"
+          android:textColor="@color/gris"
+          android:textColorHint="@color/gris"/>
+      </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <LinearLayout
       android:id="@+id/linearLayout3"
       android:layout_width="match_parent"
@@ -69,7 +113,7 @@
       android:layout_marginEnd="@dimen/_5sdp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/llSearch">
+      app:layout_constraintTop_toBottomOf="@+id/coordDDV">
       <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -94,7 +138,7 @@
       </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/recyclerView"
+      android:id="@+id/rcCard"
       android:layout_width="match_parent"
       android:layout_height="@dimen/_65sdp"
       android:layout_marginStart="@dimen/_5sdp"
@@ -102,7 +146,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-      tools:listitem="@layout/card_dipa_assigned" />
+      tools:listitem="@layout/dipa_card" />
     <LinearLayout
       android:id="@+id/linearLayout6"
       android:layout_width="match_parent"
@@ -113,7 +157,7 @@
       android:orientation="vertical"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/recyclerView">
+      app:layout_constraintTop_toBottomOf="@+id/rcCard">
       <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -267,15 +311,15 @@
         android:textSize="@dimen/_8ssp" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/rvCardAct"
+      android:id="@+id/rvEventAct"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/_65sdp"
+      android:layout_height="@dimen/_90sdp"
       android:layout_marginTop="@dimen/_5sdp"
       android:layout_marginStart="@dimen/_10sdp"
       android:layout_marginEnd="@dimen/_10sdp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/coordinatorLayout"
-      tools:listitem="@layout/card_dipa_event" />
+      tools:listitem="@layout/dipa_event" />
   </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
