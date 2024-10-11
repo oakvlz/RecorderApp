@@ -46,5 +46,17 @@
       android:hint="Resultado del escaneo"
       android:textSize="24sp"
       android:textStyle="bold" />
+    <androidx.cardview.widget.CardView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:cardCornerRadius="@dimen/_5sdp">
+      <com.journeyapps.barcodescanner.DecoratedBarcodeView
+        android:id="@+id/qrScannerView"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_250sdp"
+        android:screenOrientation="portrait"
+        tools:replace="screenOrientation"/>
+    </androidx.cardview.widget.CardView>
+
   </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
